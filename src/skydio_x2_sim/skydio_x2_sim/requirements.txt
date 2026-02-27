@@ -1,0 +1,7 @@
+imageio==2.37.2
+matplotlib==3.10.8
+mujoco==3.4.0
+numpy==2.3.5
+pybind11==3.0.1
+scipy==1.16.3
+setuptools==79.0.1

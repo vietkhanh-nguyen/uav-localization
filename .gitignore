@@ -1,0 +1,194 @@
+# ==============================================================================
+# ROS2 build artifacts
+# ==============================================================================
+build/
+install/
+log/
+**/build/
+**/install/
+**/log/
+
+# ==============================================================================
+# Logs and terminal captures
+# ==============================================================================
+*.log
+**/*.log
+terminal_cmd.txt
+
+# ==============================================================================
+# Python artifacts
+# ==============================================================================
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/*.egg-info/
+.pytest_cache/
+
+# ==============================================================================
+# Compiled libraries and binaries
+# ==============================================================================
+**/*.so
+**/*.so.*
+**/*.a
+**/*.o
+**/*.obj
+**/*.out
+**/*.bin
+# Các file thực thi mẫu của ORB_SLAM3
+src/ORB_SLAM3/Examples/Monocular/mono_*
+src/ORB_SLAM3/Examples/Monocular-Inertial/mono_inertial_*
+src/ORB_SLAM3/Examples/Stereo/stereo_*
+src/ORB_SLAM3/Examples/Stereo-Inertial/stereo_inertial_*
+src/ORB_SLAM3/Examples/RGB-D/rgbd_*
+
+# ==============================================================================
+# External libraries and temporary folders
+# ==============================================================================
+src/ORB_SLAM3/lib/
+src/ORB_SLAM3/bin/
+src/Pangolin/
+**/Examples_old/
+
+# ==============================================================================
+# Configuration and IDEs
+# ==============================================================================
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.bak
+
+# ==============================================================================
+# Datasets, Vocabulary and Large Files (Garbage Cleanup)
+# ==============================================================================
+**/TEST_DATASET/
+outputs/
+**/*.tar.gz
+**/ORBvoc.txt
+**/Vocabulary/*.txt.*
+*.pdf
+
+**/EuRoC_TimeStamps/*.txt
+**/TUM_IMU/*.txt
+**/TUM_TimeStamps/*.txt
+**/KITTI_TimeStamps/*.txt
+**/associations/*.txt
+
+
+src/ORB_SLAM3/Examples/**/EuRoC_IMU/
+src/ORB_SLAM3/Examples/**/EuRoC_TimeStamps/
+src/ORB_SLAM3/Examples/**/TUM_IMU/
+src/ORB_SLAM3/Examples/**/TUM_TimeStamps/
+src/ORB_SLAM3/Examples/**/associations/
+src/ORB_SLAM3/Examples_old/
+*.pdf
+
+
+
+
+# ==============================================================================
+# ROS 2 & Colcon Artifacts
+# ==============================================================================
+build/
+install/
+log/
+# Catch nested colcon structures
+**/build/
+**/install/
+**/log/
+# ROS2 environment setup files
+local_setup.*
+setup.*
+_setup_util.py
+
+# ==============================================================================
+# CMake & Compilation (C++) - Rất quan trọng để tránh commit file rác
+# ==============================================================================
+**/CMakeCache.txt
+**/CMakeFiles/
+**/cmake_install.cmake
+**/Makefile
+**/cmake_modules/
+**/install_manifest.txt
+**/compile_commands.json
+**/*.cmake
+
+# ==============================================================================
+# Python Artifacts
+# ==============================================================================
+**/__pycache__/
+**/*.py[cod]
+**/*.pyd
+**/*.egg-info/
+.pytest_cache/
+.tox/
+.venv/
+venv/
+ENV/
+
+# ==============================================================================
+# Binaries, Libraries & Object Files
+# ==============================================================================
+**/*.so
+**/*.so.*
+**/*.a
+**/*.o
+**/*.obj
+**/*.out
+**/*.bin
+**/*.exe
+# Chặn tất cả các file thực thi phát sinh trong thư mục Examples của ORB_SLAM3
+src/**/Examples/**/mono_*
+src/**/Examples/**/stereo_*
+src/**/Examples/**/rgbd_*
+src/**/Examples/**/recorder_*
+
+# ==============================================================================
+# ORB_SLAM3 & SLAM Specific (Gọn gàng hơn)
+# ==============================================================================
+**/ORBvoc.txt
+**/ORBvoc.bin
+**/Vocabulary/*.txt
+**/Vocabulary/*.txt.tar.gz
+**/src/ORB_SLAM3/lib/
+**/src/ORB_SLAM3/bin/
+# Evaluation rác
+**/evaluation/Ground_truth/*/
+**/f_dataset-*.txt
+**/KeyFrameTrajectory.txt
+**/CameraTrajectory.txt
+
+# ==============================================================================
+# Datasets & Large Files (General Patterns)
+# ==============================================================================
+**/*.bag
+**/*.mcap
+**/*.tar.gz
+**/*.zip
+**/*.7z
+**/*.pdf
+# Chặn các thư mục dataset phổ biến
+**/Datasets/
+**/EuRoC/
+**/TUM/
+**/KITTI/
+**/NTU_VIRAL/
+
+# ==============================================================================
+# IDEs & System Garbage
+# ==============================================================================
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.bak
+*~
+.tags
+.clangd/
+
+# ==============================================================================
+# MuJoCo & Simulations
+# ==============================================================================
+**/mujoco_cache/
+**/*.mjb

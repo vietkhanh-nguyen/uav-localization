@@ -1,0 +1,67 @@
+<mujoco model="Skydio X2 Parallax Forest Matte">
+
+  <statistic center="5 0 2" extent="10" meansize=".2"/>
+
+  <visual>
+    <headlight diffuse="0.9 0.9 0.9" ambient="0.5 0.5 0.5" specular="0 0 0"/>
+    <map haze=".0" zfar="100" znear="0.05"/>
+    <rgba haze="0 0 0 0"/>
+    <global azimuth="-20" elevation="20" ellipsoidinertia="true" offwidth="800" offheight="600"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.5 0.6 0.7" rgb2="0.1 0.1 0.1" width="512" height="3072"/>
+    
+    <texture type="2d" name="tex_floor" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" width="512" height="512" mark="edge" markrgb="0.5 0.5 0.5"/>
+    
+    <texture type="2d" name="tex_BW" builtin="checker" rgb1="0.9 0.9 0.9" rgb2="0.1 0.1 0.1" width="512" height="512" mark="cross" markrgb="0.5 0.5 0.5"/>
+    
+    <texture type="2d" name="tex_Red" builtin="checker" rgb1="0.8 0 0" rgb2="0.1 0 0" width="512" height="512" mark="edge" markrgb="1 1 1"/>
+    <texture type="2d" name="tex_Blue" builtin="checker" rgb1="0 0 0.8" rgb2="0 0 0.1" width="512" height="512" mark="edge" markrgb="1 1 1"/>
+
+    <material name="MatFloor" texture="tex_floor" texuniform="true" texrepeat="50 50" reflectance="0" specular="0" shininess="0"/>
+    
+    <material name="MatBW" texture="tex_BW" texuniform="true" texrepeat="15 15" reflectance="0" specular="0" shininess="0"/>
+    <material name="MatRed" texture="tex_Red" texuniform="true" texrepeat="15 15" reflectance="0" specular="0" shininess="0"/>
+    <material name="MatBlue" texture="tex_Blue" texuniform="true" texrepeat="15 15" reflectance="0" specular="0" shininess="0"/>
+  </asset>
+
+  <option gravity="0 0 -9.8" magnetic="1 0 0"/>
+
+  <include file="my_x2.xml"/>
+
+<worldbody>
+    <light pos="0 0 100" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="100 100 0.05" type="plane" material="MatFloor"/>
+
+    <geom name="z1_c" pos="4 0 0.5" size="0.3 0.3 0.5" type="box" material="MatBW"/>
+    <geom name="z1_l" pos="4 1.5 1" size="0.2 0.2 1" type="box" material="MatRed"/>
+    <geom name="z1_r" pos="4 -1.5 0.7" size="0.2 0.2 0.7" type="box" material="MatBlue"/>
+    <geom name="z1_obs1" pos="5.5 1 0.3" size="0.4 0.1 0.3" type="box" material="MatBW"/>
+    <geom name="z1_obs2" pos="5.5 -0.8 1.5" size="0.1 0.5 0.2" type="box" material="MatRed"/>
+
+    <geom name="z2_wall_l" pos="8 4 2" size="0.5 2 2" type="box" material="MatBlue"/>
+    <geom name="z2_wall_r" pos="8 -4 2" size="0.5 2 2" type="box" material="MatBW"/>
+    <geom name="z2_pillar1" pos="9 0 3" size="0.4 0.4 3" type="box" material="MatRed"/>
+    <geom name="z2_pillar2" pos="10 2 1.5" size="0.3 0.3 1.5" type="box" material="MatBlue"/>
+    <geom name="z2_pillar3" pos="10 -2 1.5" size="0.3 0.3 1.5" type="box" material="MatBW"/>
+    <geom name="z2_float" pos="11 0 4" size="1.5 0.5 0.2" type="box" material="MatRed"/>
+
+    <geom name="z3_gate_l" pos="14 3 4" size="0.8 0.8 4" type="box" material="MatBW"/>
+    <geom name="z3_gate_r" pos="14 -3 4" size="0.8 0.8 4" type="box" material="MatBlue"/>
+    <geom name="z3_bar" pos="14 0 7.5" size="0.5 4 0.5" type="box" material="MatRed"/>
+    <geom name="z3_block1" pos="17 5 3" size="2 1 3" type="box" material="MatBW"/>
+    <geom name="z3_block2" pos="17 -5 3" size="2 1 3" type="box" material="MatRed"/>
+    <geom name="z3_final_wall" pos="22 0 5" size="0.5 15 5" type="box" material="MatBlue"/>
+
+    <geom name="f1" pos="6 2.5 0.5" size="0.2 0.2 0.5" type="box" material="MatRed"/>
+    <geom name="f2" pos="7 -1.2 0.8" size="0.1 0.1 0.8" type="box" material="MatBW"/>
+    <geom name="f3" pos="9.5 3.5 1.2" size="0.2 0.2 1.2" type="box" material="MatBlue"/>
+    <geom name="f4" pos="12 -2.5 0.4" size="0.3 0.3 0.4" type="box" material="MatRed"/>
+    <geom name="f5" pos="15 1.8 2.2" size="0.1 0.1 2.2" type="box" material="MatBW"/>
+    <geom name="f6" pos="18 -3.2 1.0" size="0.4 0.4 1.0" type="box" material="MatBlue"/>
+    <geom name="f7" pos="5 4 0.2" size="0.5 0.5 0.2" type="box" material="MatRed"/>
+    <geom name="f8" pos="13 -4.5 3.5" size="0.3 0.3 3.5" type="box" material="MatBW"/>
+
+  </worldbody>
+</mujoco>

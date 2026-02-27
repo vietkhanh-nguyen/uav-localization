@@ -1,0 +1,23 @@
+/**:
+  ros__parameters:
+    # IMU Parameters
+    imu:
+      freq: 200
+      accel:
+        sigma: 0.01
+        bias: 0.01
+      gyro:
+        sigma: 0.001
+        bias: 0.001
+    
+    # Magnetometer Parameters
+    mag:
+      freq: 50
+      sigma: 0.01
+      bias: 0.05
+    
+    # Marvelmind Parameters
+    marvel:
+      freq: 10
+      sigma: 0.02
+      bias: 0.01
