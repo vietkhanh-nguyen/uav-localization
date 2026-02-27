@@ -5,21 +5,26 @@ A robust multi-sensor fusion system designed for 6-DOF UAV state estimation in G
 ## Overview
 This project tackles the challenges of indoor drone navigation, such as signal multi-path effects and dynamic disturbances, by fusing high-frequency inertial data with visual and acoustic positioning systems. The core estimation framework is built upon an Error-State Kalman Filter (ESKF).
 
+## System Architecture
+![System Architecture](architecture.png)
+
+The system is designed with a decentralized fusion strategy:
+
+* **High-Frequency Prediction:** The **IMU** provides linear acceleration and angular velocity (`acc, gyro`) to the ESKF's **Predict** block.
+* **Low-Frequency Correction:**
+    * **Visual-Inertial Odometry:** **ORB-SLAM** (running on a companion computer/ground station) processes camera images to provide local `pos, rot` updates.
+    * **Global Reference:** **Marvelmind** provides absolute 3D `pos` via ultrasonic trilateration to eliminate long-term drift.
+* **Control Output:** The **ESKF** outputs a refined state estimate (`pos, rot, lin vel, angular vel`) to the **Position/Velocity Controller** for stable flight.
+
 ## Key Features
 * State Estimation: Error-State Kalman Filter (ESKF) for 6-DOF tracking.
 * Visual-Inertial Odometry: ORB-SLAM3 integration for high-accuracy local pose estimation and multi-map handling (Atlas).
 * Global Reference: Marvelmind acoustic positioning system to eliminate long-term drift.
-* Simulation Environment: Distributed Software-in-the-Loop (SITL) setup using MuJoCo for accurate physics simulation and ROS2 for modular communication.
-
-## System Architecture
-The architecture employs a decentralized fusion strategy designed for deployment on hardware like a Raspberry Pi:
-1. High-Frequency Prediction: Driven by raw IMU data (accelerometer and gyroscope).
-2. Local Correction: ORB-SLAM3 provides relative visual-inertial updates.
-3. Global Correction: Marvelmind provides absolute 3D position references via trilateration.
+* Simulation Environment: Distributed Software-in-the-Loop (SITL) setup using MuJoCo and ROS2.
 
 ## Technologies Used
-* ROS2
-* MuJoCo
+* ROS2 (Humble/Foxy)
+* MuJoCo Physics Engine
 * ORB-SLAM3
 * Marvelmind Indoor Navigation System
 * Python / C++
