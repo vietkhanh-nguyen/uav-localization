@@ -24,6 +24,12 @@ The architecture employs a decentralized fusion strategy designed for deployment
 * Marvelmind Indoor Navigation System
 * Python / C++
 
+## References & Resources
+* ORB_SLAM3 Repository: https://github.com/UZ-SLAMLab/ORB_SLAM3
+* ROS2 ORB_SLAM3 Wrapper: https://github.com/Mechazo11/ros2_orb_slam3
+* Project Video: https://youtu.be/iVY8zylndzc
+* Full Report: https://drive.google.com/file/d/1Fa0ryxui53RRlmRHe7nQAHdmT3PfBMT_/view?usp=sharing
+
 ## Authors
 * Nguyen Viet Khanh
 * Khalid Ouchaouir
